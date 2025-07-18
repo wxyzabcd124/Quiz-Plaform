@@ -36,9 +36,9 @@ function submitQuiz() {
 }
 
 async function pushAnswersToGitHub(answersJSON) {
-    const token = prompt('Enter your GitHub PAT (Personal Access Token)');
-    const repo = 'YOUR-REPO-NAME';
-    const owner = 'YOUR-GITHUB-USERNAME';
+    const token = prompt('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');
+    const repo = 'Quiz-Platform';
+    const owner = 'wxyzabcd124';
     const branch = 'main';
     const fileContent = btoa(JSON.stringify(answersJSON, null, 2));
 
