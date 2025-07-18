@@ -36,9 +36,14 @@ function submitQuiz() {
 }
 
 async function pushAnswersToGitHub(answersJSON) {
-    const token = prompt('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');
-    const repo = 'Quiz-Platform';
-    const owner = 'wxyzabcd124';
+    const token = prompt('🔑 Enter your GitHub Personal Access Token (PAT):');
+    if (!token) {
+        alert('Token is required to submit answers.');
+        return;
+    }
+
+    const owner = prompt('👤 Enter your GitHub username:');
+    const repo = prompt('📁 Enter your forked repository name (example: Quiz-Platform):');
     const branch = 'main';
     const fileContent = btoa(JSON.stringify(answersJSON, null, 2));
 
@@ -58,8 +63,10 @@ async function pushAnswersToGitHub(answersJSON) {
     });
 
     if (response.ok) {
-        alert('✅ Answers submitted to your GitHub repo! Open a Pull Request to complete.');
+        alert('✅ Answers submitted successfully! Now open a Pull Request to submit.');
     } else {
-        alert('❌ Submission failed. Check token, repo name, or permissions.');
+        const err = await response.json();
+        alert(`❌ Submission failed: ${err.message}`);
+        console.error(err);
     }
 }
