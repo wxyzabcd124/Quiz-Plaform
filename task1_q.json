@@ -1,0 +1,12 @@
+[
+    {
+        "question": "What is the output of 2 + 3 * 2?",
+        "options": ["5", "10", "7"],
+        "correctIndex": null
+    },
+    {
+        "question": "What is the type of 'True' in Python?",
+        "options": ["int", "str", "bool"],
+        "correctIndex": null
+    }
+]
